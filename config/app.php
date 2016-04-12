@@ -148,13 +148,13 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        Optimus\Api\System\TranslationServiceProvider::class,
+        Optimus\Api\System\ViewServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Infrastructure\Http\RouteServiceProvider::class,
 
     ],
 
