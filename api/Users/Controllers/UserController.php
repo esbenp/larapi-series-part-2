@@ -2,9 +2,9 @@
 
 namespace Api\Users\Controllers;
 
+use Illuminate\Http\Request;
 use Infrastructure\Http\Controller;
-use Infrastructure\Http\Request;
-use Api\Requests\CreateUserRequest;
+use Api\Users\Requests\CreateUserRequest;
 use Api\Users\Services\UserService;
 
 class UserController extends Controller
@@ -47,7 +47,7 @@ class UserController extends Controller
     {
         $data = $request->get('user', []);
 
-        return $this->response($this->userService->create($userId, $data));
+        return $this->response($this->userService->update($userId, $data));
     }
 
     public function delete($userId)
