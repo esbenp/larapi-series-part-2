@@ -5,6 +5,7 @@ namespace Api\Users\Controllers;
 use Illuminate\Http\Request;
 use Infrastructure\Http\Controller;
 use Api\Users\Requests\CreateUserRequest;
+use Api\Users\Requests\UserRolesRequest;
 use Api\Users\Services\UserService;
 
 class UserController extends Controller
@@ -53,5 +54,26 @@ class UserController extends Controller
     public function delete($userId)
     {
         return $this->response($this->userService->delete($userId));
+    }
+
+    public function addRoles($userId, UserRolesRequest $request)
+    {
+        $roles = $request->get('roles', []);
+
+        return $this->response($this->userService->addRoles($userId, $roles));
+    }
+
+    public function setRoles($userId, UserRolesRequest $request)
+    {
+        $roles = $request->get('roles', []);
+
+        return $this->response($this->userService->setRoles($userId, $roles));
+    }
+
+    public function removeRoles($userId, UserRolesRequest $request)
+    {
+        $roles = $request->get('roles', []);
+
+        return $this->response($this->userService->removeRoles($userId, $roles));
     }
 }
